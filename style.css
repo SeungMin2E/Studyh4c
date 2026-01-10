@@ -1,0 +1,60 @@
+/* 전체 기본 설정 222*/ 
+body { /* body 구조는 margin은 여백 제거 해주고 , 글꼴 설정 해주고 , 전체 페이지 배경색은 #f4f4f4로 지정해주고 color에서 기본 글자색은 #33색으로 지정*/
+  margin: 0;
+  font-family: "Noto Sans KR", Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* 상단 헤더 */
+header { /* 상단 헤더 부분은 회색느낌으로 해주고 padding-> 위아래 여백 30px, 좌우는 0 , 헤더 안에 text-align 정렬해줘서 center로 중앙정렬*/
+  background-color: #2c2c2c;
+  padding: 30px 0;
+  text-align: center;
+}
+
+header h1 { /*헤더 h1태그 설정은 하얀색*/
+  color: white;
+  margin: 0;/*h1 기본 여백 제거 */
+  font-size: 36px; /*글자 크기 36px*/
+}
+
+/* 메인 영역 */
+main {/*화면이 커져도 최대너비를 800px, 위아래 60px여백, 좌우는 자동-> 가운데 정렬*/
+  max-width: 800px;
+  margin: 60px auto;
+  background: white; /*흰 배경 */
+  padding: 40px; /*흰 배경 내부 여백 조정 해주고 */
+  border-radius: 10px; /*모서리 둥글게 해주고 */
+  text-align: center;/*텍스트 가운데 정렬 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);/*네모에 그림자 효과*/
+}
+
+main h2 {
+  font-size: 22px;
+  margin-bottom: 30px;   /* 아래 요소와 간격 */
+
+}
+
+/* 게시판 버튼 (a 태그) */
+main a {
+  display: inline-block;  /* a 태그를 버튼처럼 사용 */
+  padding: 14px 28px;   /* 버튼 크기 */
+  background-color: #333;
+  color: white; /*글씨 색*/
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease; /*hover, active 효과를 부드럽게 해준다*/
+}
+
+/* 마우스 올렸을 때 */
+main a:hover {
+  background-color: #555;
+  transform: translateY(-2px); /*버튼에 마우스 올렸을 때 살짝 떠오르는 효과 */
+}
+
+/* 클릭할 때 */
+main a:active {
+  transform: translateY(0);/*버튼 눌렀을때 누른 느낌 추가 */
+}
