@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}게시판{% endblock %}
+
+{% block content %}
+<h2>게시판</h2>
+
+<a href="/write" class="button">글쓰기</a>
+
+<table>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>날짜</th>
+    <th>관리</th>
+  </tr>
+
+{% for post in posts %}
+<tr>
+  <td>{{ loop.index }}</td>
+  <td>
+    <a href="/view/{{ post.id }}">{{ post.title }}</a>
+  </td>
+  <td>{{ post.writer }}</td>
+  <td>{{ post.created_at }}</td>
+  <td>
+    <a href="/edit/{{ post.id }}">수정</a> |
+    <a href="/delete/{{ post.id }}" onclick="return confirm('삭제?')">삭제</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
