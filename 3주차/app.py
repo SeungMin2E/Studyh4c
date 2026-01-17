@@ -1,15 +1,19 @@
 from flask import Flask, render_template, request, redirect
 import pymysql
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # .env 파일 불러오기
 
 app = Flask(__name__)
 
 # DB 연결
 def get_connection():
     return pymysql.connect(
-        host="localhost",
-        user="root",
-        password="1234",
-        db="board_db",
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),  # ✅ 하드코딩 제거
+        db=os.getenv("DB_NAME"),
         charset="utf8",
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -81,21 +85,14 @@ def delete(id):
     conn.close()
     return redirect("/notice")
 
-
-# view 
+# VIEW
 @app.route("/view/<int:id>")
 def view(id):
     conn = get_connection()
     cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT * FROM board WHERE id = %s",
-        (id,)
-    )
+    cursor.execute("SELECT * FROM board WHERE id=%s", (id,))
     post = cursor.fetchone()
-
     conn.close()
-
     return render_template("view.html", post=post)
 
 if __name__ == "__main__":
