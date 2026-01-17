@@ -12,7 +12,7 @@ def get_connection():
     return pymysql.connect(
         host=os.getenv("DB_HOST"),
         user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),  # ✅ 하드코딩 제거
+        password=os.getenv("DB_PASSWORD"),  # 하드코딩 제거
         db=os.getenv("DB_NAME"),
         charset="utf8",
         cursorclass=pymysql.cursors.DictCursor
