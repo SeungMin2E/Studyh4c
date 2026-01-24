@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+<h2>로그인</h2>
+
+<form method="post" action="/login">
+  <input name="username" placeholder="아이디">
+  <input name="password" type="password">
+  <button>로그인</button>
+</form>
+
+<a href="/">메인으로 돌아가기</a>
+{% endblock %}

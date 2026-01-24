@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}글 상세보기{% endblock %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+
+<p>
+  <strong>작성자:</strong> {{ post.writer }}<br>
+  <strong>작성일:</strong> {{ post.created_at }}
+</p>
+
+<hr>
+
+<p style="white-space: pre-line;">
+  {{ post.content }}
+</p>
+
+{% if post.filename %}
+    <a href="{{ url_for('download', filename=post.filename) }}">
+        📎 {{ post.filename }} 다운로드
+    </a>
+{% endif %}
+
+<div class="btn-group">
+  <a href="/edit/{{ post.id }}" class="btn btn-primary">수정</a>
+  <a href="/delete/{{ post.id }}"
+     class="btn btn-danger"
+     onclick="return confirm('정말 삭제할까요?')">삭제</a>
+  <a href="/notice" class="btn btn-secondary">목록</a>
+</div>
+{% endblock %}

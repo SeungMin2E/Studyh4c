@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}아이디 찾기{% endblock %}
+
+{% block content %}
+<h2>아이디 찾기</h2>
+
+<form method="post" action="/find_id">
+  <div class="form-group">
+    <label>이메일</label>
+    <input type="email" name="email" placeholder="가입한 이메일" required>
+  </div>
+
+  <button class="btn btn-primary">아이디 찾기</button>
+</form>
+
+{% if username %}
+  <hr>
+  <p>가입된 아이디는 <strong>{{ username }}</strong> 입니다.</p>
+{% endif %}
+
+{% if error %}
+  <hr>
+  <p style="color:red">{{ error }}</p>
+{% endif %}
+
+<br>
+<a href="/" class="btn btn-secondary">메인으로</a>
+{% endblock %}

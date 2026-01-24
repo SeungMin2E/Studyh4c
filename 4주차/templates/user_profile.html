@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}사용자 프로필{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-card">
+    <h2>{{ user.username }}님의 프로필</h2>
+
+    {% if user.profile_image %}
+      <img
+        src="{{ url_for('static', filename='uploads/' + user.profile_image) }}"
+        class="profile-image"
+      >
+    {% else %}
+      <div class="profile-image empty"></div>
+    {% endif %}
+
+    <div class="profile-info">
+      <p><span>이름 :</span> {{ user.name }}</p>
+      <p><span>학교 :</span> {{ user.school }}</p>
+    </div>
+
+    <a href="/notice" class="back-btn">← 게시판으로</a>
+  </div>
+</div>
+{% endblock %}
