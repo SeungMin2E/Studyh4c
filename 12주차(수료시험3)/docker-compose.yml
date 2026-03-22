@@ -1,0 +1,16 @@
+services:
+  apache:
+    build: ./apache
+    container_name: apache-php-disclosure
+    ports:
+      - "8082:80"
+    volumes:
+      - ./sites:/srv:ro
+    depends_on:
+      - php
+
+  php:
+    image: php:8.2-fpm
+    container_name: php-fpm-disclosure
+    volumes:
+      - ./sites:/srv:ro
