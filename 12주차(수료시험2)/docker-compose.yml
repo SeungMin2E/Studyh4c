@@ -1,0 +1,9 @@
+services:
+  apache:
+    build: .
+    container_name: apache-cgi-disclosure
+    ports:
+      - "8081:80"
+    volumes:
+      - ./htdocs:/usr/local/apache2/htdocs:ro
+      - ./cgi-bin:/usr/local/apache2/cgi-bin:ro
